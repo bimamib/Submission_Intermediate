@@ -7,4 +7,6 @@
     <string name="button_login">Login</string>
     <string name="title_welcome_page">Welcome My Story Apps</string>
     <string name="button_register">Register</string>
+    <string name="name">Nama</string>
+    <string name="title_signup_page">Please Complete Your Data</string>
 </resources>
