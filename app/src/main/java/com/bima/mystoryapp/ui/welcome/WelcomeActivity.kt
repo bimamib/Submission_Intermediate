@@ -1,4 +1,4 @@
-package com.bima.mystoryapp.view.welcome
+package com.bima.mystoryapp.ui.welcome
 
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
@@ -6,10 +6,9 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import com.bima.mystoryapp.R
 import com.bima.mystoryapp.databinding.ActivityWelcomeBinding
-import com.bima.mystoryapp.view.login.LoginActivity
-import com.bima.mystoryapp.view.register.RegisterActivity
+import com.bima.mystoryapp.ui.view.login.LoginActivity
+import com.bima.mystoryapp.ui.view.register.RegisterActivity
 
 class WelcomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityWelcomeBinding

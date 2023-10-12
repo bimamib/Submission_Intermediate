@@ -1,4 +1,4 @@
-package com.bima.mystoryapp.view.login
+package com.bima.mystoryapp.ui.view.login
 
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
@@ -7,8 +7,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import com.bima.mystoryapp.databinding.ActivityLoginBinding
-import com.bima.mystoryapp.view.main.MainActivity
-import com.bima.mystoryapp.view.register.RegisterActivity
+import com.bima.mystoryapp.ui.view.main.MainActivity
+import com.bima.mystoryapp.ui.view.register.RegisterActivity
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding

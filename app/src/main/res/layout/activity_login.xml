@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.login.LoginActivity">
+    tools:context=".ui.view.login.LoginActivity">
 
     <ImageView
         android:id="@+id/imageView"
@@ -116,7 +116,7 @@
         app:startIconDrawable="@drawable/ic_lock"
         tools:alpha="100">
 
-        <com.bima.mystoryapp.CustomEditText
+        <com.bima.mystoryapp.CustomEditTextPassword
             android:id="@+id/passwordEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

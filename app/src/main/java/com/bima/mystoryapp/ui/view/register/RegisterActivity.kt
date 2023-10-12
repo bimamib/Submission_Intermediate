@@ -1,4 +1,4 @@
-package com.bima.mystoryapp.view.register
+package com.bima.mystoryapp.ui.view.register
 
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
@@ -9,8 +9,8 @@ import android.view.View
 import com.bima.mystoryapp.R
 import com.bima.mystoryapp.databinding.ActivityLoginBinding
 import com.bima.mystoryapp.databinding.ActivityRegisterBinding
-import com.bima.mystoryapp.view.login.LoginActivity
-import com.bima.mystoryapp.view.main.MainActivity
+import com.bima.mystoryapp.ui.view.login.LoginActivity
+import com.bima.mystoryapp.ui.view.main.MainActivity
 
 class RegisterActivity : AppCompatActivity() {
     private lateinit var binding: ActivityRegisterBinding

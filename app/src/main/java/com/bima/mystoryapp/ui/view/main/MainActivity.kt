@@ -1,4 +1,4 @@
-package com.bima.mystoryapp.view.main
+package com.bima.mystoryapp.ui.view.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
