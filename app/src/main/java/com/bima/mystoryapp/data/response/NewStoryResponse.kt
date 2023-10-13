@@ -2,7 +2,7 @@ package com.bima.mystoryapp.data.response
 
 import com.google.gson.annotations.SerializedName
 
-data class RegisterResponse(
+data class NewStoryResponse(
 
 	@field:SerializedName("error")
 	val error: Boolean? = null,

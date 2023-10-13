@@ -2,6 +2,8 @@ package com.bima.mystoryapp.data.remote.retrofit
 
 import com.bima.mystoryapp.data.response.RegisterResponse
 import com.bima.mystoryapp.data.response.StoryResponse
+import retrofit2.Call
+import retrofit2.Response
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.GET
@@ -26,6 +28,5 @@ interface ApiService {
 
     @GET("stories")
     suspend fun getStories(
-        @Header("Authorization") token: String,
     ): StoryResponse
 }

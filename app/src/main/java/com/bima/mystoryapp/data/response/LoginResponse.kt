@@ -2,7 +2,7 @@ package com.bima.mystoryapp.data.response
 
 import com.google.gson.annotations.SerializedName
 
-data class LoginModel(
+data class LoginResponse(
 
 	@field:SerializedName("loginResult")
 	val loginResult: LoginResult? = null,
