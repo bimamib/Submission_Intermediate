@@ -11,8 +11,7 @@ class ApiConfig {
 
     companion object {
 
-        var token = ""
-        var name = ""
+            var token = ""
         fun getApiService(token: String): ApiService {
             val loggingInterceptor = HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
             val authInterceptor = Interceptor { chain ->

@@ -6,7 +6,7 @@
     android:gravity="left">
 
     <ImageView
-        android:layout_width="300dp"
+        android:layout_width="204dp"
         android:layout_height="50dp"
         android:layout_gravity="center"
         android:src="@drawable/logo_bar" />

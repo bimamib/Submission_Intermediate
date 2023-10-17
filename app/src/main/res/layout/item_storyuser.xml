@@ -36,7 +36,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="4dp"
-            android:fontFamily="@font/poppins_bold"
+            android:fontFamily="@font/quicksand_bold"
             android:textColor="@color/black"
             android:textSize="20sp"
             card_view:layout_constraintBottom_toBottomOf="parent"

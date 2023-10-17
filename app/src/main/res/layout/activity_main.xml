@@ -29,14 +29,16 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/favorite_adduser"
+            android:id="@+id/fab_add"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:layout_gravity="bottom|end"
-            android:backgroundTint="@color/darkbrown"
+            android:backgroundTint="@color/orange"
             app:fabSize="normal"
-            app:srcCompat="@drawable/baseline_add_a_photo_24" />
+            app:tint="@color/darkbrown"
+            tools:ignore="ContentDescription"
+            app:srcCompat="@drawable/ic_plus_circle" />
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
     <ProgressBar
@@ -45,19 +47,6 @@
         tools:visibility="visible"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <TextView
-        android:id="@+id/error_message"
-        tools:visibility="visible"
-        android:visibility="gone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/error_message"
-        android:fontFamily="@font/poppins_regular"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"

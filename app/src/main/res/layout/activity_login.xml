@@ -16,6 +16,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guidelineHorizontal2"
+        tools:ignore="ContentDescription"
         app:srcCompat="@drawable/login_logo" />
 
     <TextView
@@ -29,7 +30,7 @@
         android:textColor="@color/black"
         android:textSize="18sp"
         android:alpha="0"
-        android:fontFamily="@font/poppins_bold"
+        android:fontFamily="@font/quicksand_bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -45,7 +46,7 @@
         android:text="@string/message_login_page"
         android:textColor="@color/black"
         android:textSize="15sp"
-        android:fontFamily="@font/poppins_regular"
+        android:fontFamily="@font/quicksand_regular"
         android:alpha="0"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -61,7 +62,7 @@
         android:layout_marginTop="24dp"
         android:text="@string/email"
         android:textColor="@color/black"
-        android:fontFamily="@font/poppins_regular"
+        android:fontFamily="@font/quicksand_regular"
         android:alpha="0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/messageTextView"
@@ -69,26 +70,39 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/emailEditTextLayout"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
         android:alpha="0"
+        android:hint="@string/enter_email"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailTextView"
         app:startIconDrawable="@drawable/ic_email"
+        app:layout_constraintTop_toBottomOf="@+id/emailTextView"
+
         tools:alpha="100">
 
-        <com.google.android.material.textfield.TextInputEditText
+        <com.bima.mystoryapp.CustomEditTextEmail
             android:id="@+id/emailEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textEmailAddress"
+            android:fontFamily="@font/quicksand_regular"
             tools:ignore="SpeakableTextPresentCheck" />
     </com.google.android.material.textfield.TextInputLayout>
+
+    <ProgressBar
+        android:id="@+id/progressBarLogin"
+        android:visibility="gone"
+        tools:visibility="visible"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/passwordTextView"
@@ -98,7 +112,7 @@
         android:layout_marginTop="8dp"
         android:text="@string/password"
         android:textColor="@color/black"
-        android:fontFamily="@font/poppins_regular"
+        android:fontFamily="@font/quicksand_regular"
         android:alpha="0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/emailEditTextLayout"
@@ -111,6 +125,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
+        android:hint="@string/enter_password"
         android:alpha="0"
         app:endIconMode="password_toggle"
         app:layout_constraintEnd_toEndOf="parent"
@@ -123,6 +138,7 @@
             android:id="@+id/passwordEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/quicksand_regular"
             android:ems="10"
             android:inputType="textPassword"
             tools:ignore="SpeakableTextPresentCheck" />
@@ -135,10 +151,10 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
-        android:backgroundTint="@color/darkbrown"
+        android:backgroundTint="@color/orange"
         android:text="@string/button_login"
         android:alpha="0"
-        android:fontFamily="@font/poppins_regular"
+        android:fontFamily="@font/quicksand_medium"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/passwordEditTextLayout"
@@ -150,7 +166,7 @@
         android:layout_height="64dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintGuide_percent="0.4"
+        app:layout_constraintGuide_percent="0.3"
         app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.constraintlayout.widget.Guideline

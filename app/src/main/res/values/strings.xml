@@ -7,8 +7,19 @@
     <string name="button_login">Login</string>
     <string name="title_welcome_page">Welcome My Story Apps</string>
     <string name="button_register">Register</string>
-    <string name="name">Nama</string>
+    <string name="name">Name</string>
     <string name="title_signup_page">Please Complete Your Data</string>
-    <string name="error_message">Story tidak ditemukan</string>
     <string name="menu_logout">Logout</string>
+    <string name="invalidEmail">Email Invalid</string>
+    <string name="error_password">Password Error</string>
+    <string name="description">Description</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="enter_email">Enter Email</string>
+    <string name="enter_name">Enter Name</string>
+    <string name="add_image">Add Image</string>
+    <string name="camera">Camera</string>
+    <string name="gallery">Gallery</string>
+    <string name="add_description">Description</string>
+    <string name="upload">Upload</string>
+    <string name="empty_image_warning">Not found image</string>
 </resources>

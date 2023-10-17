@@ -16,6 +16,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline2"
+        tools:ignore="ContentDescription"
         app:srcCompat="@drawable/regis_logo" />
 
     <TextView
@@ -28,7 +29,7 @@
         android:text="@string/title_signup_page"
         android:textColor="@color/black"
         android:textSize="20sp"
-        android:fontFamily="@font/poppins_bold"
+        android:fontFamily="@font/quicksand_bold"
         android:alpha="0"
         tools:alpha="100"
         app:layout_constraintEnd_toEndOf="parent"
@@ -44,7 +45,7 @@
         android:layout_marginTop="8dp"
         android:text="@string/name"
         android:textColor="@color/black"
-        android:fontFamily="@font/poppins_regular"
+        android:fontFamily="@font/quicksand_regular"
         android:alpha="0"
         tools:alpha="100"
         app:layout_constraintStart_toStartOf="parent"
@@ -57,6 +58,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
+        android:hint="@string/enter_name"
         android:alpha="0"
         tools:alpha="100"
         app:layout_constraintEnd_toEndOf="parent"
@@ -69,6 +71,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:fontFamily="@font/quicksand_regular"
             android:inputType="text" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -80,7 +83,7 @@
         android:layout_marginTop="16dp"
         android:text="@string/email"
         android:textColor="@color/black"
-        android:fontFamily="@font/poppins_regular"
+        android:fontFamily="@font/quicksand_regular"
         android:alpha="0"
         tools:alpha="100"
         app:layout_constraintStart_toStartOf="parent"
@@ -94,19 +97,32 @@
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
         android:alpha="0"
+        android:hint="@string/enter_email"
         tools:alpha="100"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/emailTextView"
         app:startIconDrawable="@drawable/ic_email">
 
-        <com.google.android.material.textfield.TextInputEditText
+        <com.bima.mystoryapp.CustomEditTextEmail
             android:id="@+id/emailEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:fontFamily="@font/quicksand_regular"
             android:inputType="textEmailAddress" />
     </com.google.android.material.textfield.TextInputLayout>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:visibility="gone"
+        tools:visibility="visible"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/passwordTextView"
@@ -116,7 +132,7 @@
         android:layout_marginTop="8dp"
         android:text="@string/password"
         android:textColor="@color/black"
-        android:fontFamily="@font/poppins_regular"
+        android:fontFamily="@font/quicksand_regular"
         android:alpha="0"
         tools:alpha="100"
         app:layout_constraintStart_toStartOf="parent"
@@ -132,6 +148,7 @@
         android:alpha="0"
         tools:alpha="100"
         app:endIconMode="password_toggle"
+        android:hint="@string/enter_password"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/passwordTextView"
@@ -142,6 +159,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:fontFamily="@font/quicksand_regular"
             android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -152,9 +170,9 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
-        android:backgroundTint="@color/darkbrown"
+        android:backgroundTint="@color/orange"
         android:text="@string/button_register"
-        android:fontFamily="@font/poppins_regular"
+        android:fontFamily="@font/quicksand_medium"
         android:alpha="0"
         tools:alpha="100"
         app:layout_constraintEnd_toEndOf="parent"
