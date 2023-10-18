@@ -3,11 +3,13 @@ package com.bima.mystoryapp.ui.view.login
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
+import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
+import com.bima.mystoryapp.R
 import com.bima.mystoryapp.data.Result
 import com.bima.mystoryapp.data.ViewModelFactory
 import com.bima.mystoryapp.data.response.LoginResponse
@@ -29,6 +31,9 @@ class LoginActivity : AppCompatActivity() {
 
         playAnimation()
         setupAction()
+
+        supportActionBar?.displayOptions = ActionBar.DISPLAY_SHOW_CUSTOM
+        supportActionBar?.setCustomView(R.layout.custom_actionbar)
     }
 
     fun playAnimation() {
@@ -40,11 +45,15 @@ class LoginActivity : AppCompatActivity() {
 
         val login = ObjectAnimator.ofFloat(binding.loginButton, View.ALPHA, 1f).setDuration(100)
         val title = ObjectAnimator.ofFloat(binding.titleTextView, View.ALPHA, 1f).setDuration(100)
-        val message = ObjectAnimator.ofFloat(binding.messageTextView, View.ALPHA, 1f).setDuration(100)
+        val message =
+            ObjectAnimator.ofFloat(binding.messageTextView, View.ALPHA, 1f).setDuration(100)
         val email = ObjectAnimator.ofFloat(binding.emailTextView, View.ALPHA, 1f).setDuration(100)
-        val etlEmail = ObjectAnimator.ofFloat(binding.emailEditTextLayout, View.ALPHA, 1f).setDuration(100)
-        val password = ObjectAnimator.ofFloat(binding.passwordTextView, View.ALPHA, 1f).setDuration(100)
-        val etlPassword = ObjectAnimator.ofFloat(binding.passwordEditTextLayout, View.ALPHA, 1f).setDuration(100)
+        val etlEmail =
+            ObjectAnimator.ofFloat(binding.emailEditTextLayout, View.ALPHA, 1f).setDuration(100)
+        val password =
+            ObjectAnimator.ofFloat(binding.passwordTextView, View.ALPHA, 1f).setDuration(100)
+        val etlPassword =
+            ObjectAnimator.ofFloat(binding.passwordEditTextLayout, View.ALPHA, 1f).setDuration(100)
 
         AnimatorSet().apply {
             playSequentially(title, message, email, etlEmail, password, etlPassword, login)

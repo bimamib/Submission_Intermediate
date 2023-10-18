@@ -3,7 +3,6 @@ package com.bima.mystoryapp.ui.view.story
 import android.Manifest
 import android.content.pm.PackageManager
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -11,11 +10,13 @@ import android.widget.Toast
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
+import androidx.appcompat.app.ActionBar
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.bima.mystoryapp.R
+import com.bima.mystoryapp.data.Result
 import com.bima.mystoryapp.data.ViewModelFactory
 import com.bima.mystoryapp.databinding.ActivityAddStroryBinding
-import com.bima.mystoryapp.data.Result
 
 class AddStoryActivity : AppCompatActivity() {
 
@@ -56,6 +57,9 @@ class AddStoryActivity : AppCompatActivity() {
         binding.btnGallery.setOnClickListener { startGallery() }
         binding.btnCamera.setOnClickListener { startCamera() }
         binding.btnUpload.setOnClickListener { uploadImage() }
+
+        supportActionBar?.displayOptions = ActionBar.DISPLAY_SHOW_CUSTOM
+        supportActionBar?.setCustomView(R.layout.custom_actionbar)
     }
 
     private fun startGallery() {

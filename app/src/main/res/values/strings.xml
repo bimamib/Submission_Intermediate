@@ -11,7 +11,6 @@
     <string name="title_signup_page">Please Complete Your Data</string>
     <string name="menu_logout">Logout</string>
     <string name="invalidEmail">Email Invalid</string>
-    <string name="error_password">Password Error</string>
     <string name="description">Description</string>
     <string name="enter_password">Enter Password</string>
     <string name="enter_email">Enter Email</string>
@@ -22,4 +21,12 @@
     <string name="add_description">Description</string>
     <string name="upload">Upload</string>
     <string name="empty_image_warning">Not found image</string>
+    <string name="login_imageview">Login ImageView</string>
+    <string name="register_imageview">Register ImageView</string>
+    <string name="splash_screen_activity">Splash Screen</string>
+    <string name="welcome_imageview">Welcome ImageView</string>
+    <string name="item_imageview">Item ImageView User</string>
+    <string name="logo_story">MY STORY LOGO</string>
+    <string name="menu_language">Language</string>
+    <string name="detail_imageview">Detail ImageView</string>
 </resources>

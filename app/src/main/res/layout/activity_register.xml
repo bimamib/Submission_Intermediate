@@ -16,8 +16,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline2"
-        tools:ignore="ContentDescription"
-        app:srcCompat="@drawable/regis_logo" />
+        app:srcCompat="@drawable/regis_logo"
+        android:contentDescription="@string/register_imageview" />
 
     <TextView
         android:id="@+id/titleTextView"
@@ -163,16 +163,17 @@
             android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <Button
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/registerButton"
-        android:layout_width="0dp"
-        android:layout_height="64dp"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
         android:backgroundTint="@color/orange"
+        android:textColor="@color/black"
         android:text="@string/button_register"
-        android:fontFamily="@font/quicksand_medium"
+        android:fontFamily="@font/quicksand_bold"
         android:alpha="0"
         tools:alpha="100"
         app:layout_constraintEnd_toEndOf="parent"

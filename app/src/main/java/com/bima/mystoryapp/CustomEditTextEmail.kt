@@ -7,7 +7,7 @@ import android.util.AttributeSet
 import android.util.Patterns
 import androidx.appcompat.widget.AppCompatEditText
 
-class CustomEditTextEmail : AppCompatEditText{
+class CustomEditTextEmail : AppCompatEditText {
     private val errorMessage: String by lazy { context.getString(R.string.invalidEmail) }
     private val emailPattern: Regex by lazy { "^[_A-Za-z0-9-+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$".toRegex() }
 
@@ -19,7 +19,11 @@ class CustomEditTextEmail : AppCompatEditText{
         init()
     }
 
-    constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
+    constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(
+        context,
+        attrs,
+        defStyleAttr
+    ) {
         init()
     }
 

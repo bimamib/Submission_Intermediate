@@ -15,8 +15,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="ContentDescription"
-        app:srcCompat="@drawable/welcome_logo" />
+        app:srcCompat="@drawable/welcome_logo"
+        android:contentDescription="@string/welcome_imageview" />
 
     <TextView
         android:id="@+id/titleTextView"
@@ -36,33 +36,35 @@
         app:layout_constraintTop_toTopOf="@+id/guidelineHorizontal"
         tools:alpha="100" />
 
-    <Button
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/loginButton"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
         android:alpha="0"
         android:backgroundTint="@color/orange"
+        android:textColor="@color/black"
         android:text="@string/button_login"
-        android:fontFamily="@font/quicksand_medium"
+        android:fontFamily="@font/quicksand_bold"
         app:layout_constraintEnd_toStartOf="@+id/guidelineVertical"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleTextView"
         tools:alpha="100" />
 
-    <Button
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/registerButton"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
         android:alpha="0"
         android:backgroundTint="@color/orange"
+        android:textColor="@color/black"
         android:text="@string/button_register"
-        android:fontFamily="@font/quicksand_medium"
+        android:fontFamily="@font/quicksand_bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guidelineVertical"
         app:layout_constraintTop_toBottomOf="@+id/titleTextView"

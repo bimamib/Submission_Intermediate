@@ -1,12 +1,12 @@
 package com.bima.mystoryapp.ui.view.detail
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
+import androidx.appcompat.app.ActionBar
+import androidx.appcompat.app.AppCompatActivity
 import com.bima.mystoryapp.R
 import com.bima.mystoryapp.data.ViewModelFactory
 import com.bima.mystoryapp.databinding.ActivityDetailBinding
-import com.bima.mystoryapp.databinding.ActivityMainBinding
 import com.bima.mystoryapp.ui.view.main.MainViewModel
 import com.bumptech.glide.Glide
 
@@ -23,15 +23,18 @@ class DetailActivity : AppCompatActivity() {
         binding = ActivityDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        id = intent.getStringExtra(ID)?: ""
-        name = intent.getStringExtra(NAME)?: ""
-        description = intent.getStringExtra(DESCRIPTION)?: ""
-        picture = intent.getStringExtra(PICTURE)?: ""
+        id = intent.getStringExtra(ID) ?: ""
+        name = intent.getStringExtra(NAME) ?: ""
+        description = intent.getStringExtra(DESCRIPTION) ?: ""
+        picture = intent.getStringExtra(PICTURE) ?: ""
 
         binding.tvDetailName.text = name
         binding.tvDetailDescription.text = description
 
         Glide.with(this).load(picture).into(binding.ivDetailPhoto)
+
+        supportActionBar?.displayOptions = ActionBar.DISPLAY_SHOW_CUSTOM
+        supportActionBar?.setCustomView(R.layout.custom_actionbar)
     }
 
     companion object {

@@ -4,10 +4,10 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.bima.mystoryapp.data.Result
 import com.bima.mystoryapp.data.repository.StoryRepository
 import com.bima.mystoryapp.data.response.RegisterResponse
 import kotlinx.coroutines.launch
-import com.bima.mystoryapp.data.Result
 
 class RegisterViewModel(private val storyRepository: StoryRepository) : ViewModel() {
 

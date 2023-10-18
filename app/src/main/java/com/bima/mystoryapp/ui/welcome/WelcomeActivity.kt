@@ -3,9 +3,11 @@ package com.bima.mystoryapp.ui.welcome
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.ActionBar
+import androidx.appcompat.app.AppCompatActivity
+import com.bima.mystoryapp.R
 import com.bima.mystoryapp.databinding.ActivityWelcomeBinding
 import com.bima.mystoryapp.ui.view.login.LoginActivity
 import com.bima.mystoryapp.ui.view.register.RegisterActivity
@@ -21,9 +23,12 @@ class WelcomeActivity : AppCompatActivity() {
 
         playAnimation()
         setupAction()
+
+        supportActionBar?.displayOptions = ActionBar.DISPLAY_SHOW_CUSTOM
+        supportActionBar?.setCustomView(R.layout.custom_actionbar)
     }
 
-    fun playAnimation(){
+    fun playAnimation() {
         ObjectAnimator.ofFloat(binding.imageView, View.TRANSLATION_X, -30f, 30f).apply {
             duration = 2000
             repeatCount = ObjectAnimator.INFINITE

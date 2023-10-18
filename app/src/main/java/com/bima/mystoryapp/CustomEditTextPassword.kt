@@ -46,6 +46,6 @@ class CustomEditTextPassword : AppCompatEditText {
     }
 
     fun isValid(): Boolean {
-        return text.toString().length >=8
+        return text.toString().length >= 8
     }
 }

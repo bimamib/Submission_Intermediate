@@ -25,11 +25,11 @@
                 android:id="@+id/iv_detail_photo"
                 android:layout_width="match_parent"
                 android:layout_height="275dp"
+                android:contentDescription="@string/detail_imageview"
                 android:scaleType="center"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="ContentDescription"
                 tools:src="@tools:sample/backgrounds/scenic" />
 
             <LinearLayout

@@ -11,11 +11,12 @@ import com.bima.mystoryapp.databinding.ItemStoryuserBinding
 import com.bima.mystoryapp.ui.view.detail.DetailActivity
 import com.bumptech.glide.Glide
 
-class UserAdapter:
+class UserAdapter :
     ListAdapter<ListStoryItem, UserAdapter.MyViewHolder>(DIFF_CALLBACK) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        val binding = ItemStoryuserBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding =
+            ItemStoryuserBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return MyViewHolder(binding)
     }
 
@@ -24,7 +25,8 @@ class UserAdapter:
         holder.bind(user)
     }
 
-    inner class MyViewHolder(private val binding: ItemStoryuserBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class MyViewHolder(private val binding: ItemStoryuserBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         fun bind(itemName: ListStoryItem) {
             binding.tvItemName.text = itemName.name
             Glide.with(binding.root)
@@ -47,7 +49,10 @@ class UserAdapter:
                 return oldItem == newItem
             }
 
-            override fun areContentsTheSame(oldItem: ListStoryItem, newItem: ListStoryItem): Boolean {
+            override fun areContentsTheSame(
+                oldItem: ListStoryItem,
+                newItem: ListStoryItem
+            ): Boolean {
                 return oldItem == newItem
             }
         }

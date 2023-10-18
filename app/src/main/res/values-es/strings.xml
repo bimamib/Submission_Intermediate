@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Mi Historia App</string>
+    <string name="title_login_page">¿Estás listo para compartir tu historia?</string>
+    <string name="message_login_page">Por favor, completa tu correo electrónico y contraseña a continuación</string>
+    <string name="email">Correo Electrónico</string>
+    <string name="password">Contraseña</string>
+    <string name="button_login">Iniciar Sesión</string>
+    <string name="title_welcome_page">Bienvenido a Mi Historia App</string>
+    <string name="button_register">Registrarse</string>
+    <string name="name">Nombre</string>
+    <string name="title_signup_page">Por favor, completa tus datos</string>
+    <string name="menu_logout">Cerrar Sesión</string>
+    <string name="invalidEmail">Correo Electrónico no válido</string>
+    <string name="description">Descripción</string>
+    <string name="enter_password">Introduce tu Contraseña</string>
+    <string name="enter_email">Introduce tu Correo Electrónico</string>
+    <string name="enter_name">Introduce tu Nombre</string>
+    <string name="add_image">Agregar Imagen</string>
+    <string name="camera">Cámara</string>
+    <string name="gallery">Galería</string>
+    <string name="add_description">Descripción</string>
+    <string name="upload">Subir</string>
+    <string name="empty_image_warning">No se encontró ninguna imagen</string>
+    <string name="login_imageview">Vista de Inicio de Sesión</string>
+    <string name="register_imageview">Vista de Registro</string>
+    <string name="splash_screen_activity">Pantalla de Bienvenida</string>
+    <string name="welcome_imageview">Vista de Bienvenida</string>
+    <string name="item_imageview">Vista de Elemento de Usuario</string>
+    <string name="logo_story">LOGO MI HISTORIA</string>
+    <string name="menu_language">Idioma</string>
+    <string name="detail_imageview">Vista de Detalles de la Imagen</string>
+</resources>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Aplikasi Ceritaku</string>
+    <string name="title_login_page">Apakah Anda Siap Membagikan Cerita Anda?</string>
+    <string name="message_login_page">Silakan isi email dan kata sandi Anda di bawah ini</string>
+    <string name="email">Email</string>
+    <string name="password">Kata Sandi</string>
+    <string name="button_login">Masuk</string>
+    <string name="title_welcome_page">Selamat Datang di Aplikasi Ceritaku</string>
+    <string name="button_register">Daftar</string>
+    <string name="name">Nama</string>
+    <string name="title_signup_page">Harap Lengkapi Data Anda</string>
+    <string name="menu_logout">Keluar</string>
+    <string name="invalidEmail">Email Tidak Valid</string>
+    <string name="description">Deskripsi</string>
+    <string name="enter_password">Masukkan Kata Sandi</string>
+    <string name="enter_email">Masukkan Email</string>
+    <string name="enter_name">Masukkan Nama</string>
+    <string name="add_image">Tambahkan Gambar</string>
+    <string name="camera">Kamera</string>
+    <string name="gallery">Galeri</string>
+    <string name="add_description">Deskripsi</string>
+    <string name="upload">Unggah</string>
+    <string name="empty_image_warning">Gambar tidak ditemukan</string>
+    <string name="login_imageview">Tampilan Gambar Masuk</string>
+    <string name="register_imageview">Tampilan Gambar Daftar</string>
+    <string name="splash_screen_activity">Layar Pembuka</string>
+    <string name="welcome_imageview">Tampilan Gambar Selamat Datang</string>
+    <string name="item_imageview">Tampilan Gambar Item Pengguna</string>
+    <string name="logo_story">LOGO CERITAKU</string>
+    <string name="menu_language">Bahasa</string>
+    <string name="detail_imageview">Tampilan Gambar Detail</string>
+</resources>

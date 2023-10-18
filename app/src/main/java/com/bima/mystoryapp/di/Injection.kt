@@ -12,6 +12,7 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
 
 private val Context.dataStore: DataStore<Preferences> by preferencesDataStore("token")
+
 object Injection {
     fun provideRepository(context: Context): StoryRepository {
         val pref = UserPreference.getInstance(context.dataStore)

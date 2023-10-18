@@ -1,23 +1,23 @@
 package com.bima.mystoryapp.data.repository
 
 import androidx.lifecycle.liveData
-import com.bima.mystoryapp.data.remote.retrofit.ApiService
-import com.bima.mystoryapp.data.response.RegisterResponse
 import com.bima.mystoryapp.data.Result
 import com.bima.mystoryapp.data.pref.UserModel
 import com.bima.mystoryapp.data.pref.UserPreference
 import com.bima.mystoryapp.data.remote.retrofit.ApiConfig
+import com.bima.mystoryapp.data.remote.retrofit.ApiService
 import com.bima.mystoryapp.data.response.ErrorResponse
 import com.bima.mystoryapp.data.response.LoginResponse
+import com.bima.mystoryapp.data.response.RegisterResponse
 import com.bima.mystoryapp.data.response.UploadResponse
 import com.google.gson.Gson
 import kotlinx.coroutines.flow.Flow
 import okhttp3.MediaType.Companion.toMediaType
+import okhttp3.MultipartBody
 import okhttp3.RequestBody.Companion.asRequestBody
 import okhttp3.RequestBody.Companion.toRequestBody
 import retrofit2.HttpException
 import java.io.File
-import okhttp3.MultipartBody
 
 class StoryRepository private constructor(
     private val apiService: ApiService,
@@ -65,9 +65,14 @@ class StoryRepository private constructor(
             if (response.error == true) {
                 Result.Error(response.message)
             } else {
-                val session = UserModel(name = response.loginResult.name, email = email, token = response.loginResult.token, isLogin = true)
+                val session = UserModel(
+                    name = response.loginResult.name,
+                    email = email,
+                    token = response.loginResult.token,
+                    isLogin = true
+                )
                 saveSession(session)
-                ApiConfig.token = response.loginResult?.token ?: ""
+                ApiConfig.token = response.loginResult.token
                 Result.Success(response)
             }
         } catch (e: HttpException) {
@@ -116,9 +121,6 @@ class StoryRepository private constructor(
         fun getInstance(
             apiService: ApiService,
             userPreference: UserPreference
-        ): StoryRepository =
-            instance ?: synchronized(this) {
-                instance ?: StoryRepository(apiService, userPreference)
-            }.also { instance = it }
+        ): StoryRepository = StoryRepository(apiService, userPreference)
     }
 }

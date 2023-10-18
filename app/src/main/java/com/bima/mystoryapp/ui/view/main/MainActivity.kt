@@ -1,8 +1,8 @@
 package com.bima.mystoryapp.ui.view.main
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.Settings
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
@@ -10,13 +10,13 @@ import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.ActionBar
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bima.mystoryapp.R
 import com.bima.mystoryapp.data.Result
 import com.bima.mystoryapp.data.ViewModelFactory
 import com.bima.mystoryapp.databinding.ActivityMainBinding
-import com.bima.mystoryapp.ui.view.register.RegisterViewModel
 import com.bima.mystoryapp.ui.view.story.AddStoryActivity
 import com.bima.mystoryapp.ui.welcome.WelcomeActivity
 
@@ -39,13 +39,13 @@ class MainActivity : AppCompatActivity() {
 
         }
 
-        supportActionBar?.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM)
+        supportActionBar?.displayOptions = ActionBar.DISPLAY_SHOW_CUSTOM
         supportActionBar?.setCustomView(R.layout.custom_actionbar)
 
         itemDecoration()
 
         viewModel.getSession().observe(this) { user ->
-            Log.d("token","onCreate: ${user.token}")
+            Log.d("token", "onCreate: ${user.token}")
             Log.d("user", "onCreate: ${user.isLogin}")
             if (!user.isLogin) {
                 startActivity(Intent(this, WelcomeActivity::class.java))
@@ -55,7 +55,7 @@ class MainActivity : AppCompatActivity() {
                 if (story != null) {
                     when (story) {
                         is Result.Loading -> {
-                            Toast.makeText(this, "sukses", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this, "Success", Toast.LENGTH_SHORT).show()
                             showLoading(true)
                         }
 
@@ -123,13 +123,17 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.menu1 -> {
+                startActivity(Intent(Settings.ACTION_LOCALE_SETTINGS))
+            }
+
+            R.id.menu2 -> {
                 // Tambahkan logika logout di sini
                 viewModel.logout()
 
                 return true
             }
 
-            else -> return super.onOptionsItemSelected(item)
         }
+        return super.onOptionsItemSelected(item)
     }
 }
