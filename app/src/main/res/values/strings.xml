@@ -29,4 +29,11 @@
     <string name="logo_story">MY STORY LOGO</string>
     <string name="menu_language">Language</string>
     <string name="detail_imageview">Detail ImageView</string>
+    <string name="title_activity_maps">MapsActivity</string>
+    <string name="maps">Maps</string>
+    <string name="normal_type">Normal</string>
+    <string name="satellite_type">Satellite</string>
+    <string name="terrain_type">Terrain</string>
+    <string name="hybrid_type">Hybrid</string>
+    <string name="retry">Retry</string>
 </resources>

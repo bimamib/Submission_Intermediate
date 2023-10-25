@@ -3,11 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/menu1"
-        android:icon="@drawable/lan_ic"
-        android:title="@string/menu_language"
+        android:icon="@drawable/ic_maps_fill"
+        android:title="@string/maps"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/menu2"
+        android:icon="@drawable/ic_setlanguage"
+        android:title="@string/menu_language"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/menu3"
         android:icon="@drawable/ic_logout"
         android:title="@string/menu_logout"
         app:showAsAction="ifRoom" />

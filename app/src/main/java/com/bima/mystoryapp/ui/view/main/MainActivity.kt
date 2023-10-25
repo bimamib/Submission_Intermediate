@@ -14,9 +14,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bima.mystoryapp.R
+import com.bima.mystoryapp.adapter.LoadingStateAdapter
 import com.bima.mystoryapp.data.Result
 import com.bima.mystoryapp.data.ViewModelFactory
 import com.bima.mystoryapp.databinding.ActivityMainBinding
+import com.bima.mystoryapp.ui.maps.MapsActivity
 import com.bima.mystoryapp.ui.view.story.AddStoryActivity
 import com.bima.mystoryapp.ui.welcome.WelcomeActivity
 
@@ -51,35 +53,37 @@ class MainActivity : AppCompatActivity() {
                 startActivity(Intent(this, WelcomeActivity::class.java))
                 finish()
             }
-            viewModel.dataStory.observe(this) { story ->
-                if (story != null) {
-                    when (story) {
-                        is Result.Loading -> {
-                            Toast.makeText(this, "Success", Toast.LENGTH_SHORT).show()
-                            showLoading(true)
-                        }
-
-                        is Result.Success -> {
-                            val storyData = story.data.listStory
+            viewModel.story.observe(this) { story ->
+                val storyData = story
                             val storyAdapter = UserAdapter()
-                            storyAdapter.submitList(storyData)
-                            binding.rvUser.adapter = storyAdapter
-                            showLoading(false)
-                        }
-
-                        is Result.Error -> {
-                            showLoading(false)
-                        }
-                    }
-                }
+                            storyAdapter.submitData(lifecycle, storyData)
+                            binding.rvUser.adapter = storyAdapter.withLoadStateFooter(
+                                footer = LoadingStateAdapter {
+                                storyAdapter.retry()
+                            })
+//                if (story != null) {
+//                    when (story) {
+//                        is Result.Loading -> {
+//                            Toast.makeText(this, "Success", Toast.LENGTH_SHORT).show()
+//                            showLoading(true)
+//                        }
+//
+//                        is Result.Success -> {
+//                            val storyData = story.data.listStory
+//                            val storyAdapter = UserAdapter()
+//                            storyAdapter.submitData(storyData)
+//                            binding.rvUser.adapter = storyAdapter
+//                            showLoading(false)
+//                        }
+//
+//                        is Result.Error -> {
+//                            showLoading(false)
+//                        }
+//                    }
+//                }
             }
 
         }
-    }
-
-    override fun onResume() {
-        super.onResume()
-        viewModel.getStories()
     }
 
     private fun setUpAction() {
@@ -123,10 +127,14 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.menu1 -> {
+                val intent = Intent(this, MapsActivity::class.java)
+                startActivity(intent)
+            }
+            R.id.menu2 -> {
                 startActivity(Intent(Settings.ACTION_LOCALE_SETTINGS))
             }
 
-            R.id.menu2 -> {
+            R.id.menu3 -> {
                 // Tambahkan logika logout di sini
                 viewModel.logout()
 

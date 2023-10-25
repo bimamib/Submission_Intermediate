@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.bima.mystoryapp.data.repository.StoryRepository
 import com.bima.mystoryapp.di.Injection
+import com.bima.mystoryapp.ui.maps.MapsViewModel
 import com.bima.mystoryapp.ui.view.login.LoginViewModel
 import com.bima.mystoryapp.ui.view.main.MainViewModel
 import com.bima.mystoryapp.ui.view.register.RegisterViewModel
@@ -30,6 +31,10 @@ class ViewModelFactory(private val repository: StoryRepository) :
 
             modelClass.isAssignableFrom(AddStoryViewModel::class.java) -> {
                 AddStoryViewModel(repository) as T
+            }
+
+            modelClass.isAssignableFrom(MapsViewModel::class.java) -> {
+                MapsViewModel(repository) as T
             }
 
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)

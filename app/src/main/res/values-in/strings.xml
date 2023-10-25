@@ -30,4 +30,11 @@
     <string name="logo_story">LOGO CERITAKU</string>
     <string name="menu_language">Bahasa</string>
     <string name="detail_imageview">Tampilan Gambar Detail</string>
+    <string name="title_activity_maps">Aktivitas Peta</string>
+    <string name="maps">Peta</string>
+    <string name="normal_type">Normal</string>
+    <string name="satellite_type">Satellite</string>
+    <string name="terrain_type">Terrain</string>
+    <string name="hybrid_type">Hybrid</string>
+    <string name="retry">Coba Lagi</string>
 </resources>

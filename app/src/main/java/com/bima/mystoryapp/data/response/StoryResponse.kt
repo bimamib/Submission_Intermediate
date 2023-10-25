@@ -1,5 +1,6 @@
 package com.bima.mystoryapp.data.response
 
+import androidx.room.Entity
 import com.google.gson.annotations.SerializedName
 
 data class StoryResponse(
@@ -14,6 +15,7 @@ data class StoryResponse(
     val message: String? = null
 )
 
+@Entity(tableName = "story")
 data class ListStoryItem(
 
     @field:SerializedName("photoUrl")

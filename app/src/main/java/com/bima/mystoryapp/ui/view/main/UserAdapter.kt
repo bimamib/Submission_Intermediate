@@ -3,6 +3,7 @@ package com.bima.mystoryapp.ui.view.main
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -12,7 +13,7 @@ import com.bima.mystoryapp.ui.view.detail.DetailActivity
 import com.bumptech.glide.Glide
 
 class UserAdapter :
-    ListAdapter<ListStoryItem, UserAdapter.MyViewHolder>(DIFF_CALLBACK) {
+    PagingDataAdapter<ListStoryItem, UserAdapter.MyViewHolder>(DIFF_CALLBACK) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val binding =
@@ -22,7 +23,9 @@ class UserAdapter :
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val user = getItem(position)
-        holder.bind(user)
+        if (user != null) {
+            holder.bind(user)
+        }
     }
 
     inner class MyViewHolder(private val binding: ItemStoryuserBinding) :

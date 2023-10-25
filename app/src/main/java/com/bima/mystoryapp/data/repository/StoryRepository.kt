@@ -1,12 +1,19 @@
 package com.bima.mystoryapp.data.repository
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.liveData
+import androidx.paging.Pager
+import androidx.paging.PagingConfig
+import androidx.paging.PagingData
+import androidx.paging.liveData
 import com.bima.mystoryapp.data.Result
+import com.bima.mystoryapp.data.StoryPagingSource
 import com.bima.mystoryapp.data.pref.UserModel
 import com.bima.mystoryapp.data.pref.UserPreference
 import com.bima.mystoryapp.data.remote.retrofit.ApiConfig
 import com.bima.mystoryapp.data.remote.retrofit.ApiService
 import com.bima.mystoryapp.data.response.ErrorResponse
+import com.bima.mystoryapp.data.response.ListStoryItem
 import com.bima.mystoryapp.data.response.LoginResponse
 import com.bima.mystoryapp.data.response.RegisterResponse
 import com.bima.mystoryapp.data.response.UploadResponse
@@ -83,18 +90,18 @@ class StoryRepository private constructor(
         }
     }
 
-    fun getStories() = liveData {
-        emit(Result.Loading)
-        try {
-            val response = apiService.getStories()
-            emit(Result.Success(response))
-        } catch (e: HttpException) {
-            val jsonInString = e.response()?.errorBody()?.string()
-            val errorBody = Gson().fromJson(jsonInString, ErrorResponse::class.java)
-            val errorMessage = errorBody.message
-            Result.Error(errorMessage.toString())
-        }
-    }
+//    fun getStories() = liveData {
+//        emit(Result.Loading)
+//        try {
+//            val response = apiService.getStories()
+//            emit(Result.Success(response))
+//        } catch (e: HttpException) {
+//            val jsonInString = e.response()?.errorBody()?.string()
+//            val errorBody = Gson().fromJson(jsonInString, ErrorResponse::class.java)
+//            val errorMessage = errorBody.message
+//            Result.Error(errorMessage.toString())
+//        }
+//    }
 
     fun uploadStories(imageFile: File, description: String) = liveData {
         emit(Result.Loading)
@@ -113,6 +120,30 @@ class StoryRepository private constructor(
             val errorResponse = Gson().fromJson(errorBody, UploadResponse::class.java)
             emit(Result.Error("Error: $errorResponse"))
         }
+    }
+
+    fun getStoriesWithLocation(): LiveData<Result<List<ListStoryItem>>> = liveData {
+        emit(Result.Loading)
+        try {
+            val response = apiService.getStoriesWithLocation()
+            emit(Result.Success(response.listStory))
+        } catch (e: HttpException) {
+            val jsonInString = e.response()?.errorBody()?.string()
+            val errorBody = Gson().fromJson(jsonInString, ErrorResponse::class.java)
+            val errorMessage = errorBody.message
+            Result.Error(errorMessage.toString())
+        }
+    }
+
+    fun getStories(): LiveData<PagingData<ListStoryItem>> {
+        return Pager(
+            config = PagingConfig(
+                pageSize = 5
+            ),
+            pagingSourceFactory = {
+                StoryPagingSource(apiService)
+            }
+        ).liveData
     }
 
     companion object {

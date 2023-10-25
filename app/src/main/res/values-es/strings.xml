@@ -30,4 +30,11 @@
     <string name="logo_story">LOGO MI HISTORIA</string>
     <string name="menu_language">Idioma</string>
     <string name="detail_imageview">Vista de Detalles de la Imagen</string>
+    <string name="title_activity_maps">Actividad de Mapas</string>
+    <string name="maps">Mapas</string>
+    <string name="normal_type">Normal</string>
+    <string name="satellite_type">Satellite</string>
+    <string name="terrain_type">Terrain</string>
+    <string name="hybrid_type">Hybrid</string>
+    <string name="retry">Retry</string>
 </resources>
