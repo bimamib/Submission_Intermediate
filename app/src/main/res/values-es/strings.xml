@@ -36,5 +36,8 @@
     <string name="satellite_type">Satellite</string>
     <string name="terrain_type">Terrain</string>
     <string name="hybrid_type">Hybrid</string>
-    <string name="retry">Retry</string>
+    <string name="retry">Reintentar</string>
+    <string name="share_location">¿Desea compartir su ubicación?</string>
+    <string name="password_message">La contraseña no puede tener menos de 8 caracteres</string>
+    <string name="location_message">Su ubicación se ha permitido correctamente</string>
 </resources>

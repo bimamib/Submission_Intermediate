@@ -2,12 +2,13 @@ package com.bima.mystoryapp.data.repository
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.liveData
+import androidx.paging.ExperimentalPagingApi
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import androidx.paging.liveData
 import com.bima.mystoryapp.data.Result
-import com.bima.mystoryapp.data.StoryPagingSource
+import com.bima.mystoryapp.data.StoryRemoteMediator
 import com.bima.mystoryapp.data.pref.UserModel
 import com.bima.mystoryapp.data.pref.UserPreference
 import com.bima.mystoryapp.data.remote.retrofit.ApiConfig
@@ -16,7 +17,7 @@ import com.bima.mystoryapp.data.response.ErrorResponse
 import com.bima.mystoryapp.data.response.ListStoryItem
 import com.bima.mystoryapp.data.response.LoginResponse
 import com.bima.mystoryapp.data.response.RegisterResponse
-import com.bima.mystoryapp.data.response.UploadResponse
+import com.bima.mystoryapp.database.StoryDataBase
 import com.google.gson.Gson
 import kotlinx.coroutines.flow.Flow
 import okhttp3.MediaType.Companion.toMediaType
@@ -27,6 +28,7 @@ import retrofit2.HttpException
 import java.io.File
 
 class StoryRepository private constructor(
+    private val dataBase: StoryDataBase,
     private val apiService: ApiService,
 
     private val userPreference: UserPreference
@@ -90,6 +92,7 @@ class StoryRepository private constructor(
         }
     }
 
+    /*Dikomentar karena sudah menerapkan Paging 3*/
 //    fun getStories() = liveData {
 //        emit(Result.Loading)
 //        try {
@@ -103,7 +106,7 @@ class StoryRepository private constructor(
 //        }
 //    }
 
-    fun uploadStories(imageFile: File, description: String) = liveData {
+    fun uploadStories(imageFile: File, description: String, lat: Double?, lon: Double?) = liveData {
         emit(Result.Loading)
         val requestBody = description.toRequestBody("text/plain".toMediaType())
         val requestImageFile = imageFile.asRequestBody("image/jpeg".toMediaType())
@@ -112,13 +115,20 @@ class StoryRepository private constructor(
             imageFile.name,
             requestImageFile
         )
+        val requestLat = lat?.toString()?.toRequestBody()
+        val requestLon = lon?.toString()?.toRequestBody()
         try {
-            val successResponse = apiService.uploadImage(multipartBody, requestBody)
-            emit(Result.Success(successResponse))
+            val successResponse = apiService.uploadImage(multipartBody, requestBody, requestLat, requestLon)
+            if (successResponse.error) {
+                emit(Result.Error(successResponse.message))
+            } else {
+                emit(Result.Success(successResponse))
+            }
         } catch (e: HttpException) {
-            val errorBody = e.response()?.errorBody()?.string()
-            val errorResponse = Gson().fromJson(errorBody, UploadResponse::class.java)
-            emit(Result.Error("Error: $errorResponse"))
+            val jsonInString = e.response()?.errorBody()?.string()
+            val errorBody = Gson().fromJson(jsonInString, ErrorResponse::class.java)
+            val errorMessage = errorBody.message
+            emit(Result.Error(errorMessage.toString()))
         }
     }
 
@@ -135,13 +145,16 @@ class StoryRepository private constructor(
         }
     }
 
+    @OptIn(ExperimentalPagingApi::class)
     fun getStories(): LiveData<PagingData<ListStoryItem>> {
         return Pager(
             config = PagingConfig(
                 pageSize = 5
             ),
+            remoteMediator = StoryRemoteMediator(dataBase, apiService),
             pagingSourceFactory = {
-                StoryPagingSource(apiService)
+//                StoryPagingSource(apiService)
+                dataBase.storyDao().getAllStory()
             }
         ).liveData
     }
@@ -150,8 +163,9 @@ class StoryRepository private constructor(
         @Volatile
         private var instance: StoryRepository? = null
         fun getInstance(
+            dataBase: StoryDataBase,
             apiService: ApiService,
             userPreference: UserPreference
-        ): StoryRepository = StoryRepository(apiService, userPreference)
+        ): StoryRepository = StoryRepository(dataBase, apiService, userPreference)
     }
 }

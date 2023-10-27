@@ -1,18 +1,14 @@
 package com.bima.mystoryapp.ui.view.main
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.asFlow
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
-import com.bima.mystoryapp.data.Result
 import com.bima.mystoryapp.data.pref.UserModel
 import com.bima.mystoryapp.data.repository.StoryRepository
 import com.bima.mystoryapp.data.response.ListStoryItem
-import com.bima.mystoryapp.data.response.StoryResponse
 import kotlinx.coroutines.launch
 
 class MainViewModel(private val repository: StoryRepository) : ViewModel() {
@@ -25,22 +21,6 @@ class MainViewModel(private val repository: StoryRepository) : ViewModel() {
             repository.logout()
         }
     }
-
-//    private val listStory = MutableLiveData<Result<StoryResponse>>()
-//    val dataStory: LiveData<Result<StoryResponse>> = listStory
-//
-//    init {
-//        getStories()
-//    }
-//
-//    fun getStories() {
-//        viewModelScope.launch {
-//            val storyResponse = repository.getStories()
-//            storyResponse.asFlow().collect {
-//                listStory.value = it
-//            }
-//        }
-//    }
 
     val story: LiveData<PagingData<ListStoryItem>> = repository.getStories().cachedIn(viewModelScope)
 }

@@ -10,7 +10,7 @@ import com.bima.mystoryapp.data.response.ListStoryItem
 @Dao
 interface StoryDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertStory(quote: List<ListStoryItem>)
+    suspend fun insertStory(story: List<ListStoryItem>)
 
     @Query("SELECT * FROM story")
     fun getAllStory(): PagingSource<Int, ListStoryItem>

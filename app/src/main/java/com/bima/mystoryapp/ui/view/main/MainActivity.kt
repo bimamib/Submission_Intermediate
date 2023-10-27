@@ -7,7 +7,6 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
@@ -15,7 +14,6 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bima.mystoryapp.R
 import com.bima.mystoryapp.adapter.LoadingStateAdapter
-import com.bima.mystoryapp.data.Result
 import com.bima.mystoryapp.data.ViewModelFactory
 import com.bima.mystoryapp.databinding.ActivityMainBinding
 import com.bima.mystoryapp.ui.maps.MapsActivity
@@ -29,6 +27,7 @@ class MainActivity : AppCompatActivity() {
     private val viewModel by viewModels<MainViewModel> {
         ViewModelFactory.getInstance(this)
     }
+    private var storyAdapter = UserAdapter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,14 +36,15 @@ class MainActivity : AppCompatActivity() {
 
         setUpAction()
 
-        viewModel.getSession().observe(this) {
-
-        }
-
         supportActionBar?.displayOptions = ActionBar.DISPLAY_SHOW_CUSTOM
         supportActionBar?.setCustomView(R.layout.custom_actionbar)
 
         itemDecoration()
+
+        binding.rvUser.adapter = storyAdapter.withLoadStateFooter(
+            footer = LoadingStateAdapter {
+                storyAdapter.retry()
+            })
 
         viewModel.getSession().observe(this) { user ->
             Log.d("token", "onCreate: ${user.token}")
@@ -53,36 +53,10 @@ class MainActivity : AppCompatActivity() {
                 startActivity(Intent(this, WelcomeActivity::class.java))
                 finish()
             }
-            viewModel.story.observe(this) { story ->
-                val storyData = story
-                            val storyAdapter = UserAdapter()
-                            storyAdapter.submitData(lifecycle, storyData)
-                            binding.rvUser.adapter = storyAdapter.withLoadStateFooter(
-                                footer = LoadingStateAdapter {
-                                storyAdapter.retry()
-                            })
-//                if (story != null) {
-//                    when (story) {
-//                        is Result.Loading -> {
-//                            Toast.makeText(this, "Success", Toast.LENGTH_SHORT).show()
-//                            showLoading(true)
-//                        }
-//
-//                        is Result.Success -> {
-//                            val storyData = story.data.listStory
-//                            val storyAdapter = UserAdapter()
-//                            storyAdapter.submitData(storyData)
-//                            binding.rvUser.adapter = storyAdapter
-//                            showLoading(false)
-//                        }
-//
-//                        is Result.Error -> {
-//                            showLoading(false)
-//                        }
-//                    }
-//                }
-            }
+        }
 
+        viewModel.story.observe(this) { story ->
+            storyAdapter.submitData(lifecycle, story)
         }
     }
 
@@ -110,7 +84,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    @Deprecated("Deprecated in Java")
     override fun onBackPressed() {
         super.onBackPressed() // Panggil metode default
         val intent = Intent(Intent.ACTION_MAIN)
@@ -130,6 +103,7 @@ class MainActivity : AppCompatActivity() {
                 val intent = Intent(this, MapsActivity::class.java)
                 startActivity(intent)
             }
+
             R.id.menu2 -> {
                 startActivity(Intent(Settings.ACTION_LOCALE_SETTINGS))
             }

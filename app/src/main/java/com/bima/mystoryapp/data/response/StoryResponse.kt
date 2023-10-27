@@ -1,6 +1,7 @@
 package com.bima.mystoryapp.data.response
 
 import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
 data class StoryResponse(
@@ -30,11 +31,13 @@ data class ListStoryItem(
     @field:SerializedName("description")
     val description: String? = null,
 
+    @field:SerializedName("id")
+    @PrimaryKey
+    val id: String,
+
     @field:SerializedName("lon")
     val lon: Double? = null,
 
-    @field:SerializedName("id")
-    val id: String? = null,
 
     @field:SerializedName("lat")
     val lat: Double? = null

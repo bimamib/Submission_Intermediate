@@ -31,5 +31,4 @@ class StoryPagingSource(private val apiService: ApiService) : PagingSource<Int, 
             return LoadResult.Error(exception)
         }
     }
-
 }

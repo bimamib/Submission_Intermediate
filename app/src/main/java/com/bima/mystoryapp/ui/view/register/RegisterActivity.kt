@@ -34,7 +34,7 @@ class RegisterActivity : AppCompatActivity() {
         supportActionBar?.setCustomView(R.layout.custom_actionbar)
     }
 
-    fun playAnimation() {
+    private fun playAnimation() {
         ObjectAnimator.ofFloat(binding.imageView, View.TRANSLATION_X, -30f, 30f).apply {
             duration = 2000
             repeatCount = ObjectAnimator.INFINITE

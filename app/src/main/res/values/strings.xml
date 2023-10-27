@@ -36,4 +36,7 @@
     <string name="terrain_type">Terrain</string>
     <string name="hybrid_type">Hybrid</string>
     <string name="retry">Retry</string>
+    <string name="share_location">Do you want to share your location?</string>
+    <string name="password_message">Password cannot be less than 8 characters</string>
+    <string name="location_message">Your location was successfully authorized</string>
 </resources>

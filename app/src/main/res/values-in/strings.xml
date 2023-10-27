@@ -37,4 +37,7 @@
     <string name="terrain_type">Terrain</string>
     <string name="hybrid_type">Hybrid</string>
     <string name="retry">Coba Lagi</string>
+    <string name="share_location">Apakah Anda ingin berbagi lokasi Anda?</string>
+    <string name="password_message">Kata sandi tidak boleh kurang dari 8 karakter</string>
+    <string name="location_message">Lokasi Anda berhasil diizinkan</string>
 </resources>
